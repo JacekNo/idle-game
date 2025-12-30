@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-   <div class="game-container">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <canvas id="game-map" width="800" height="600" style="background: #2c3e50; border: 2px solid #7f8c8d; border-radius: 4px;"></canvas>
+    </div>
+    <div class="game-container">
     <header>
         <h1>Obóz Nomadów</h1>
         <div class="location-status" style="background: #2980b9; padding: 10px; border-radius: 5px; margin-bottom: 20px; color: white;">
@@ -17,7 +19,15 @@
             <p>Zwierzyna w okolicy: <span id="loc-animals">0</span></p>
             <button id="btn-migrate" onclick="migrate()" style="background: #e67e22; display: none; border:none; padding:5px; cursor:pointer;">Wyrusz w podróż (Migracja)</button>
         </div>
+        <div id="scout-panel" style="display: none; margin-top: 15px; border-top: 1px dashed #ecf0f1; padding-top: 15px;">
+            <h3>Raport Zwiadowców</h3>
+            <p>Wybierz cel podróży:</p>
+            <div id="scout-options" style="display: flex; gap: 10px; justify-content: center;"></div>
+        </div>
         <div id="day-counter">Dzień: 0</div>
+        <div id="season-display" style="font-weight: bold; color: #f1c40f; margin-top: 5px;">
+            Pora roku: Wiosna
+        </div>
     </header>
 
     <section class="resources">
