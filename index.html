@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomad Idle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div class="game-container">
+    <header>
+        <h1>Obóz Nomadów</h1>
+        <div class="location-status" style="background: #2980b9; padding: 10px; border-radius: 5px; margin-bottom: 20px; color: white;">
+            <h2>Lokacja: <span id="loc-name">Nieznany Las</span></h2>
+            <p>Drzewa w lesie: <span id="loc-wood">0</span></p>
+            <p>Zwierzyna w okolicy: <span id="loc-animals">0</span></p>
+            <button id="btn-migrate" onclick="migrate()" style="background: #e67e22; display: none; border:none; padding:5px; cursor:pointer;">Wyrusz w podróż (Migracja)</button>
+        </div>
+        <div id="day-counter">Dzień: 0</div>
+    </header>
+
+    <section class="resources">
+        <div class="resource-card">
+            <h3>Drewno</h3>
+            <p><span id="current-wood">0</span> / <span id="max-wood">100</span></p>
+        </div>
+        <div class="resource-card">
+            <h3>Jedzenie</h3>
+            <p><span id="current-food">0</span> / <span id="max-food">100</span></p>
+        </div>
+    </section>
+
+    <section class="development" style="border-top: 1px solid #7f8c8d; margin-top: 20px; padding-top: 10px;">
+        <h3>Rozwój Osady</h3>
+        <p>Miejsca w osadzie: <span id="pop-current">0</span> / <span id="pop-limit">0</span></p>
+
+        <div class="building-row">
+            <b>Szałas</b> (Koszt: 50 Drewna, +2 Miejsca)<br>
+            Posiadasz: <span id="hut-count">0</span>
+            <button onclick="buildHut()">Zbuduj</button>
+        </div>
+
+        <div class="recruit-row" style="margin-top: 10px;">
+            <b>Nowy Osadnik</b> (Koszt: 50 Jedzenia)
+            <button onclick="recruitSettler()">Rekrutuj</button>
+        </div>
+    </section>
+
+    <section class="management">
+        <h3>Zarządzanie Osadą</h3>
+        <p>Bezrobotni: <span id="unemployed-count">0</span></p>
+
+        <div class="job-row">
+            <span>Drwale: <span id="woodcutter-count">0</span></span>
+            <button onclick="assignWorker('woodcutter')">+</button>
+            <button onclick="removeWorker('woodcutter')">-</button>
+        </div>
+
+        <div class="job-row">
+            <span>Myśliwi: <span id="hunter-count">0</span></span>
+            <button onclick="assignWorker('hunter')">+</button>
+            <button onclick="removeWorker('hunter')">-</button>
+        </div>
+    </section>
+
+    <section class="log" id="game-log" style="margin-top:20px; border-top:1px solid #ccc; padding-top:10px;">
+        <p>Rozbiliście obóz.</p>
+    </section>
+</div>
+<script src="app.js"></script>
